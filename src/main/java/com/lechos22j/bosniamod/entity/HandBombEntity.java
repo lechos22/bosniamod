@@ -78,7 +78,7 @@ public class HandBombEntity extends ThrownItemEntity {
 
     private void explode() {
         if (!world.isClient) {
-            world.createExplosion(this, getX(), getY(), getZ(), 2.0F, Explosion.DestructionType.BREAK);
+            world.createExplosion(this, getX(), getY(), getZ(), 4.0F, Explosion.DestructionType.BREAK);
         }
     }
 
