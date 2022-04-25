@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "bosniamod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "BosniaMod",
+  "description": "Boom!",
   "authors": [
-    "Me!"
+    "Lech Mazur"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/lechos22/bosniamod",
+    "sources": "https://github.com/lechos22/bosniamod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "BSD 3-clause license",
+  "icon": "assets/bosniamod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.lechos22j.bosniamod.BosniaMod"
     ]
   },
   "mixins": [
