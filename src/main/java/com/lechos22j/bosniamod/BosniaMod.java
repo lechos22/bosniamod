@@ -1,5 +1,6 @@
 package com.lechos22j.bosniamod;
 
+import com.lechos22j.bosniamod.block.VillagerSpawnerBlock;
 import com.lechos22j.bosniamod.entity.HandBombEntity;
 import com.lechos22j.bosniamod.item.HandBombItem;
 import net.fabricmc.api.ModInitializer;
@@ -18,6 +19,7 @@ public class BosniaMod implements ModInitializer {
 	public void onInitialize() {
 		HandBombItem.init();
 		HandBombEntity.init();
+		VillagerSpawnerBlock.init();
 		// TODO: Cluster Bomb
 		LOGGER.info("BosniaMod initialized");
 	}
