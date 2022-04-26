@@ -1,9 +1,8 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "minecraft:block/tnt",
 	"textures": {
-		"0": "item/hand_bomb",
-		"particle": "item/hand_bomb"
+		"0": "bosniamod:item/hand_bomb",
+		"particle": "bosniamod:item/hand_bomb"
 	},
 	"elements": [
 		{
