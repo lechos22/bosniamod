@@ -1,3 +1,52 @@
 {
-  "parent": "minecraft:block/tnt"
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/tnt",
+	"textures": {
+		"0": "item/hand_bomb",
+		"particle": "item/hand_bomb"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [8, 8, 8],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"south": {"uv": [8, 8, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#0"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [3.5, 3.25, 3],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-3.5, 3.25, 3],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"translation": [4.75, 3.5, 2.5],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"translation": [1.5, 3.5, 2],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [4, 5.5, 4]
+		},
+		"gui": {
+			"translation": [4, 4, 0]
+		},
+		"head": {
+			"translation": [4, 14.5, 4]
+		},
+		"fixed": {
+			"translation": [4, 4, 3]
+		}
+	}
 }

@@ -62,6 +62,7 @@ public class HandBombEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
+            tntEntity.kill();
             explode();
             kill();
         }
@@ -71,6 +72,7 @@ public class HandBombEntity extends ThrownItemEntity {
         super.onCollision(hitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
+            tntEntity.kill();
             explode();
             kill();
         }

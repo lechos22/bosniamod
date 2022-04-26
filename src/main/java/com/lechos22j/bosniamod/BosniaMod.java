@@ -18,6 +18,7 @@ public class BosniaMod implements ModInitializer {
 	public void onInitialize() {
 		HandBombItem.init();
 		HandBombEntity.init();
+		// TODO: Cluster Bomb
 		LOGGER.info("BosniaMod initialized");
 	}
 }
