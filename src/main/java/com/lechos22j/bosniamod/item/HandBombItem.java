@@ -44,7 +44,7 @@ public class HandBombItem extends Item {
             new Identifier(BosniaMod.MOD_ID, "hand_bomb"),
             new HandBombItem(
                 new Settings()
-                    .group(ItemGroup.COMBAT)
+                    .group(BosniaMod.BOSNIA_ITEM_GROUP)
             )
         );
     }
