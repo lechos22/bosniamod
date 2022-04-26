@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SpawnerBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -17,7 +18,9 @@ import org.jetbrains.annotations.Nullable;
 public class VillagerSpawnerBlock extends SpawnerBlock {
     public static VillagerSpawnerBlock VILLAGER_SPAWNER_BLOCK;
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new VillagerSpawnerBlockEntity(pos, state);
+        MobSpawnerBlockEntity mobSpawnerBlockEntity = new MobSpawnerBlockEntity(pos, state);
+        mobSpawnerBlockEntity.getLogic().setEntityId(EntityType.VILLAGER);
+        return mobSpawnerBlockEntity;
     }
     public VillagerSpawnerBlock(Settings settings) {
         super(settings);
