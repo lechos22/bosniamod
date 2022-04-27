@@ -1,8 +1,10 @@
 package com.lechos22j.bosniamod;
 
+import com.lechos22j.bosniamod.armormaterial.GasMaskArmorMaterial;
 import com.lechos22j.bosniamod.entity.ClusterBombEntity;
 import com.lechos22j.bosniamod.entity.HandBombEntity;
 import com.lechos22j.bosniamod.item.ClusterBombItem;
+import com.lechos22j.bosniamod.item.GasMaskItem;
 import com.lechos22j.bosniamod.item.HandBombItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -23,6 +25,7 @@ public class BosniaMod implements ModInitializer {
 		.appendItems(stacks -> {
 			stacks.add(HandBombItem.HAND_BOMB_ITEM.getDefaultStack());
 			stacks.add(ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack());
+			stacks.add(GasMaskItem.GAS_MASK_ITEM.getDefaultStack());
 			{
 				ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
 				NbtCompound nbt = villagerSpawner.getNbt();
@@ -77,6 +80,8 @@ public class BosniaMod implements ModInitializer {
 		HandBombEntity.init();
 		ClusterBombItem.init();
 		ClusterBombEntity.init();
+		GasMaskArmorMaterial.init();
+		GasMaskItem.init();
 		LOGGER.info("BosniaMod initialized");
 	}
 }
