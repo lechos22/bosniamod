@@ -21,12 +21,47 @@ public class BosniaMod implements ModInitializer {
 		.icon(HandBombItem.HAND_BOMB_ITEM::getDefaultStack)
 		.appendItems(stacks -> {
 			stacks.add(HandBombItem.HAND_BOMB_ITEM.getDefaultStack());
-			ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
-			NbtCompound nbt = villagerSpawner.getNbt();
-			//spawner{BlockEntityTag:{SpawnData:{entity:{id:"minecraft:villager",CustomName:'{"text":"Bosniac"}'}}}}
-			nbt.getCompound("BlockEntityTag").getCompound("SpawnData").getCompound("entity").putString("id", "minecraft:villager");
-			nbt.getCompound("BlockEntityTag").getCompound("SpawnData").getCompound("entity").putString("CustomName", "{\"text\":\"Bosniac\"}");
-			stacks.add(villagerSpawner);
+			{
+				ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
+				NbtCompound nbt = villagerSpawner.getNbt();
+				if (nbt == null)
+					nbt = new NbtCompound();
+				nbt.put("display", new NbtCompound() {{
+					putString("Name", "{\"text\":\"Bosniac Spawner\"}");
+				}});
+				nbt.put("BlockEntityTag", new NbtCompound() {{
+					put("SpawnData", new NbtCompound() {{
+						put("entity", new NbtCompound() {{
+							putString("id", "minecraft:villager");
+							putString("CustomName", "{\"text\":\"Bosniac\"}");
+							putBoolean("CustomNameVisible", true);
+						}});
+					}});
+				}});
+				villagerSpawner.setNbt(nbt);
+				stacks.add(villagerSpawner);
+			}
+			{
+				ItemStack funnierVillagerSpawner = Items.SPAWNER.getDefaultStack();
+				NbtCompound funnierNbt = funnierVillagerSpawner.getNbt();
+				if (funnierNbt == null)
+					funnierNbt = new NbtCompound();
+				funnierNbt.put("display", new NbtCompound() {{
+					putString("Name", "{\"text\":\"Funnier Bosniac Spawner\"}");
+				}});
+				funnierNbt.put("BlockEntityTag", new NbtCompound() {{
+					put("SpawnData", new NbtCompound() {{
+						put("entity", new NbtCompound() {{
+							putString("id", "minecraft:villager");
+							putString("CustomName", "{\"text\":\"Bosniac\"}");
+							putBoolean("CustomNameVisible", true);
+							putLong("Age", -23553);
+						}});
+					}});
+				}});
+				funnierVillagerSpawner.setNbt(funnierNbt);
+				stacks.add(funnierVillagerSpawner);
+			}
 		})
 		.build();
 
