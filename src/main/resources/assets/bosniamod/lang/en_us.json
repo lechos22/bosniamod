@@ -1,4 +1,7 @@
 {
   "item.bosniamod.hand_bomb": "Hand Bomb",
-  "itemGroup.bosniamod.all": "Bosnia Mod"
+  "itemGroup.bosniamod.all": "Bosnia Mod",
+  "block.bosniamod.bosnian_spawner": "Bosnian Spawner",
+  "block.bosniamod.funnier_bosnian_spawner": "Funnier Bosnian Spawner",
+  "entity.bosniamod.bosnian": "Bosnian"
 }

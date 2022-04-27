@@ -1,3 +1,7 @@
 {
-  "item.bosniamod.hand_bomb": "Рука Бомба"
+  "item.bosniamod.hand_bomb": "Рука Бомба",
+  "itemGroup.bosniamod.all": "Босния Мод",
+  "block.bosniamod.bosnian_spawner": "Создатель боснийцев",
+  "block.bosniamod.funnier_bosnian_spawner": "Более забавный боснийский спаунер",
+  "entity.bosniamod.bosnian": "Боснийский"
 }

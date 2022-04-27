@@ -27,13 +27,13 @@ public class BosniaMod implements ModInitializer {
 				if (nbt == null)
 					nbt = new NbtCompound();
 				nbt.put("display", new NbtCompound() {{
-					putString("Name", "{\"text\":\"Bosniac Spawner\"}");
+					putString("Name", "{\"translate\":\"block.bosniamod.bosnian_spawner\"}");
 				}});
 				nbt.put("BlockEntityTag", new NbtCompound() {{
 					put("SpawnData", new NbtCompound() {{
 						put("entity", new NbtCompound() {{
 							putString("id", "minecraft:villager");
-							putString("CustomName", "{\"text\":\"Bosniac\"}");
+							putString("CustomName", "{\"translate\":\"entity.bosniamod.bosnian\"}");
 							putBoolean("CustomNameVisible", true);
 						}});
 					}});
@@ -47,13 +47,13 @@ public class BosniaMod implements ModInitializer {
 				if (funnierNbt == null)
 					funnierNbt = new NbtCompound();
 				funnierNbt.put("display", new NbtCompound() {{
-					putString("Name", "{\"text\":\"Funnier Bosniac Spawner\"}");
+					putString("Name", "{\"translate\":\"block.bosniamod.funnier_bosnian_spawner\"}");
 				}});
 				funnierNbt.put("BlockEntityTag", new NbtCompound() {{
 					put("SpawnData", new NbtCompound() {{
 						put("entity", new NbtCompound() {{
 							putString("id", "minecraft:villager");
-							putString("CustomName", "{\"text\":\"Bosniac\"}");
+							putString("CustomName", "{\"translate\":\"entity.bosniamod.bosnian\"}");
 							putBoolean("CustomNameVisible", true);
 							putLong("Age", -23553);
 						}});
