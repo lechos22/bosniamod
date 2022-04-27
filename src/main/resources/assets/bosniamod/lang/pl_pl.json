@@ -1,6 +1,7 @@
 {
   "item.bosniamod.hand_bomb": "Ręka Bomba",
   "itemGroup.bosniamod.all": "Bośnia Mod",
+  "item.bosniamod.cluster_bomb": "Bomba Kasetowa",
   "block.bosniamod.bosnian_spawner": "Spawner Bośniaków",
   "block.bosniamod.funnier_bosnian_spawner": "Śmieszniejszy Spawner Bośniaków",
   "entity.bosniamod.bosnian": "Bośniak"

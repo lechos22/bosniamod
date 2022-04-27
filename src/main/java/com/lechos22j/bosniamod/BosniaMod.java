@@ -1,6 +1,8 @@
 package com.lechos22j.bosniamod;
 
+import com.lechos22j.bosniamod.entity.ClusterBombEntity;
 import com.lechos22j.bosniamod.entity.HandBombEntity;
+import com.lechos22j.bosniamod.item.ClusterBombItem;
 import com.lechos22j.bosniamod.item.HandBombItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -9,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DefaultedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,7 @@ public class BosniaMod implements ModInitializer {
 		.icon(HandBombItem.HAND_BOMB_ITEM::getDefaultStack)
 		.appendItems(stacks -> {
 			stacks.add(HandBombItem.HAND_BOMB_ITEM.getDefaultStack());
+			stacks.add(ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack());
 			{
 				ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
 				NbtCompound nbt = villagerSpawner.getNbt();
@@ -73,7 +75,8 @@ public class BosniaMod implements ModInitializer {
 	public void onInitialize() {
 		HandBombItem.init();
 		HandBombEntity.init();
-		// TODO: Cluster Bomb
+		ClusterBombItem.init();
+		ClusterBombEntity.init();
 		LOGGER.info("BosniaMod initialized");
 	}
 }
