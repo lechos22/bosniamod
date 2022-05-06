@@ -1,12 +1,11 @@
 package com.lechos22j.bosniamod;
 
-import com.lechos22j.bosniamod.armormaterial.GasMaskArmorMaterial;
-import com.lechos22j.bosniamod.entity.ClusterBombEntity;
-import com.lechos22j.bosniamod.entity.HandBombEntity;
+import com.lechos22j.bosniamod.entity.EntityInitializer;
 import com.lechos22j.bosniamod.item.ClusterBombItem;
 import com.lechos22j.bosniamod.item.GasMaskItem;
 import com.lechos22j.bosniamod.item.HandBombItem;
 import com.lechos22j.bosniamod.item.ItemInitializer;
+import com.lechos22j.bosniamod.renderer.RendererInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -73,10 +72,9 @@ public class BosniaMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		HandBombEntity.init();
-		ClusterBombEntity.init();
-		GasMaskArmorMaterial.init();
 		ItemInitializer.init();
+		EntityInitializer.init();
+		RendererInitializer.init();
 		LOGGER.info("BosniaMod initialized");
 	}
 }

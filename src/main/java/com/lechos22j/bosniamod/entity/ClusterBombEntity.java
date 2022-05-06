@@ -1,24 +1,27 @@
 package com.lechos22j.bosniamod.entity;
 
-import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.item.ClusterBombItem;
-import com.lechos22j.bosniamod.renderer.ClusterBombRenderer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 public class ClusterBombEntity extends ThrownItemEntity {
-    public static final EntityType<ClusterBombEntity> CLUSTER_BOMB_ENTITY_TYPE;
+    public static final EntityType<ClusterBombEntity> CLUSTER_BOMB_ENTITY_TYPE =
+        FabricEntityTypeBuilder.create(
+            SpawnGroup.MISC,
+            (EntityType<ClusterBombEntity> type, World world) -> new ClusterBombEntity(type, world)
+        )
+            .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+            .trackRangeBlocks(4)
+            .trackedUpdateRate(10)
+            .build();
 
     public TntEntity getTntEntity() {
         return tntEntity;
@@ -135,19 +138,5 @@ public class ClusterBombEntity extends ThrownItemEntity {
     @Override
     protected Item getDefaultItem() {
         return ClusterBombItem.CLUSTER_BOMB_ITEM;
-    }
-    static {
-        CLUSTER_BOMB_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
-            new Identifier(BosniaMod.MOD_ID,"cluster_bomb"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType<ClusterBombEntity> type, World world) -> new ClusterBombEntity(type, world))
-                .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
-                .trackRangeBlocks(4)
-                .trackedUpdateRate(10)
-                .build()
-        );
-    }
-    public static void init() {
-        EntityRendererRegistry.register(CLUSTER_BOMB_ENTITY_TYPE, ClusterBombRenderer::new);
     }
 }

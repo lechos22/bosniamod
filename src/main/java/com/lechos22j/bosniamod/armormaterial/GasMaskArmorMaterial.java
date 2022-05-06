@@ -8,7 +8,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class GasMaskArmorMaterial implements ArmorMaterial {
-    public static final ArmorMaterial GAS_MASK_ARMOR_MATERIAL;
+    public static final ArmorMaterial GAS_MASK_ARMOR_MATERIAL = new GasMaskArmorMaterial();
 
     @Override
     public int getDurability(EquipmentSlot slot) {
@@ -55,10 +55,4 @@ public class GasMaskArmorMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return 0;
     }
-
-    static {
-        GAS_MASK_ARMOR_MATERIAL = new GasMaskArmorMaterial();
-    }
-
-    public static void init() {}
 }

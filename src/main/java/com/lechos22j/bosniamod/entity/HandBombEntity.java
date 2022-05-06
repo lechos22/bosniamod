@@ -1,22 +1,25 @@
 package com.lechos22j.bosniamod.entity;
 
-import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.item.HandBombItem;
-import com.lechos22j.bosniamod.renderer.HandBombRenderer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 public class HandBombEntity extends ThrownItemEntity {
-    public static final EntityType<HandBombEntity> HAND_BOMB_ENTITY_TYPE;
+    public static final EntityType<HandBombEntity> HAND_BOMB_ENTITY_TYPE =
+        FabricEntityTypeBuilder.create(
+            SpawnGroup.MISC,
+            (EntityType<HandBombEntity> type, World world) -> new HandBombEntity(type, world)
+        )
+            .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+            .trackRangeBlocks(4)
+            .trackedUpdateRate(10)
+            .build();
 
     public TntEntity getTntEntity() {
         return tntEntity;
@@ -72,19 +75,5 @@ public class HandBombEntity extends ThrownItemEntity {
     @Override
     protected Item getDefaultItem() {
         return HandBombItem.HAND_BOMB_ITEM;
-    }
-    static {
-        HAND_BOMB_ENTITY_TYPE = Registry.register(
-            Registry.ENTITY_TYPE,
-            new Identifier(BosniaMod.MOD_ID,"hand_bomb"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType<HandBombEntity> type, World world) -> new HandBombEntity(type, world))
-                .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
-                .trackRangeBlocks(4)
-                .trackedUpdateRate(10)
-                .build()
-        );
-    }
-    public static void init() {
-        EntityRendererRegistry.register(HAND_BOMB_ENTITY_TYPE, HandBombRenderer::new);
     }
 }
