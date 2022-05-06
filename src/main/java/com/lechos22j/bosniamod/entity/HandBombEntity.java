@@ -63,6 +63,7 @@ public class HandBombEntity extends ThrownItemEntity {
             world.sendEntityStatus(this, (byte)3);
             tntEntity.kill();
             explode();
+            kill();
         }
     }
 
