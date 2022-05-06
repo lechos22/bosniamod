@@ -1,10 +1,7 @@
 package com.lechos22j.bosniamod;
 
 import com.lechos22j.bosniamod.entity.EntityInitializer;
-import com.lechos22j.bosniamod.item.ClusterBombItem;
-import com.lechos22j.bosniamod.item.GasMaskItem;
-import com.lechos22j.bosniamod.item.HandBombItem;
-import com.lechos22j.bosniamod.item.ItemInitializer;
+import com.lechos22j.bosniamod.item.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -23,6 +20,7 @@ public class BosniaMod implements ModInitializer {
 		.icon(HandBombItem.HAND_BOMB_ITEM::getDefaultStack)
 		.appendItems(stacks -> {
 			stacks.add(HandBombItem.HAND_BOMB_ITEM.getDefaultStack());
+			stacks.add(BigBombItem.BIG_BOMB_ITEM.getDefaultStack());
 			stacks.add(ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack());
 			stacks.add(GasMaskItem.GAS_MASK_ITEM.getDefaultStack());
 			{
