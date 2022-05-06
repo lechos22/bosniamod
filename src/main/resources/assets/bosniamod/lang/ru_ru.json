@@ -1,6 +1,7 @@
 {
   "item.bosniamod.hand_bomb": "Рука Бомба",
   "item.bosniamod.cluster_bomb": "Кассетная Бомба",
+  "item.bosniamod.gas_mask": "Противогаз",
   "itemGroup.bosniamod.all": "Босния Мод",
   "block.bosniamod.bosnian_spawner": "Создатель боснийцев",
   "block.bosniamod.funnier_bosnian_spawner": "Более забавный боснийский спаунер",
