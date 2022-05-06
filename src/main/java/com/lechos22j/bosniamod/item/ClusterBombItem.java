@@ -2,7 +2,6 @@ package com.lechos22j.bosniamod.item;
 
 import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.entity.ClusterBombEntity;
-import com.lechos22j.bosniamod.entity.HandBombEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,9 +9,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 public class ClusterBombItem extends Item {

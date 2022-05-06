@@ -1,7 +1,6 @@
 package com.lechos22j.bosniamod.item;
 
 import com.lechos22j.bosniamod.BosniaMod;
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 

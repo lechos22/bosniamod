@@ -2,7 +2,6 @@ package com.lechos22j.bosniamod.entity;
 
 import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.item.ClusterBombItem;
-import com.lechos22j.bosniamod.item.HandBombItem;
 import com.lechos22j.bosniamod.renderer.ClusterBombRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -14,14 +13,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ClusterBombEntity extends ThrownItemEntity {
     public static final EntityType<ClusterBombEntity> CLUSTER_BOMB_ENTITY_TYPE;

@@ -4,10 +4,6 @@ import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.armormaterial.GasMaskArmorMaterial;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class GasMaskItem extends ArmorItem {
     public static final GasMaskItem GAS_MASK_ITEM =
