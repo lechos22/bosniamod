@@ -14,7 +14,6 @@ public class LivingEntityMixin {
     private void isAffectedBySplashPotions(CallbackInfoReturnable<Boolean> cir) {
         if(cir.getReturnValue()) {
             if((Object) this instanceof LivingEntity livingEntity) {
-                System.out.println("isAffectedBySplashPotions()");
                 if(livingEntity.getEquippedStack(EquipmentSlot.HEAD).getItem() == GasMaskItem.GAS_MASK_ITEM) {
                     cir.setReturnValue(false);
                 }
