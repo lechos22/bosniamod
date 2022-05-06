@@ -16,7 +16,11 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 public class ClusterBombItem extends Item {
-    public static final ClusterBombItem CLUSTER_BOMB_ITEM;
+    public static final ClusterBombItem CLUSTER_BOMB_ITEM =
+        new ClusterBombItem(
+            new Settings()
+                .group(BosniaMod.BOSNIA_ITEM_GROUP)
+        );
 
     public ClusterBombItem(Settings settings) {
         super(settings);
@@ -37,17 +41,5 @@ public class ClusterBombItem extends Item {
             itemStack.decrement(1);
         }
         return TypedActionResult.success(itemStack, world.isClient());
-    }
-    static {
-        CLUSTER_BOMB_ITEM = Registry.register(
-            Registry.ITEM,
-            new Identifier(BosniaMod.MOD_ID, "cluster_bomb"),
-            new ClusterBombItem(
-                new Settings()
-                    .group(BosniaMod.BOSNIA_ITEM_GROUP)
-            )
-        );
-    }
-    public static void init() {
     }
 }

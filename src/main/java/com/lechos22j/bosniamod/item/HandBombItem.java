@@ -18,7 +18,11 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 public class HandBombItem extends Item {
-    public static final HandBombItem HAND_BOMB_ITEM;
+    public static final HandBombItem HAND_BOMB_ITEM =
+        new HandBombItem(
+            new Settings()
+                .group(BosniaMod.BOSNIA_ITEM_GROUP)
+        );
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -37,17 +41,5 @@ public class HandBombItem extends Item {
     }
     public HandBombItem(Settings settings) {
         super(settings);
-    }
-    static {
-        HAND_BOMB_ITEM = Registry.register(
-            Registry.ITEM,
-            new Identifier(BosniaMod.MOD_ID, "hand_bomb"),
-            new HandBombItem(
-                new Settings()
-                    .group(BosniaMod.BOSNIA_ITEM_GROUP)
-            )
-        );
-    }
-    public static void init() {
     }
 }
