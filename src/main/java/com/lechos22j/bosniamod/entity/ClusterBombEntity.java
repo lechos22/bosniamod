@@ -23,18 +23,9 @@ public class ClusterBombEntity extends ThrownItemEntity {
             .trackedUpdateRate(10)
             .build();
 
-    public TntEntity getTntEntity() {
-        return tntEntity;
-    }
-
-    private final TntEntity tntEntity;
     private int stage;
     public ClusterBombEntity(EntityType<? extends ClusterBombEntity> type, World world) {
         super(type, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
         stage = 1;
     }
 
@@ -61,26 +52,17 @@ public class ClusterBombEntity extends ThrownItemEntity {
 
     public ClusterBombEntity(World world, double x, double y, double z) {
         super(CLUSTER_BOMB_ENTITY_TYPE, x, y, z, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
         stage = 1;
     }
 
     public ClusterBombEntity(World world, LivingEntity livingEntity) {
         super(CLUSTER_BOMB_ENTITY_TYPE, livingEntity, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
         stage = 1;
     }
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
-            tntEntity.kill();
             explode();
             kill();
         }
@@ -93,7 +75,6 @@ public class ClusterBombEntity extends ThrownItemEntity {
         if(getY() < -100) {
             if(!world.isClient) {
                 world.sendEntityStatus(this, (byte)3);
-                tntEntity.kill();
                 explode();
                 kill();
             }
@@ -114,7 +95,6 @@ public class ClusterBombEntity extends ThrownItemEntity {
                 }
             }
             world.sendEntityStatus(this, (byte)3);
-            tntEntity.kill();
             explode();
             kill();
         }
@@ -124,7 +104,6 @@ public class ClusterBombEntity extends ThrownItemEntity {
         super.onCollision(hitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
-            tntEntity.kill();
             explode();
             kill();
         }

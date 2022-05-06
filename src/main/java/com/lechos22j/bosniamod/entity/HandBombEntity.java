@@ -21,37 +21,19 @@ public class HandBombEntity extends ThrownItemEntity {
             .trackedUpdateRate(10)
             .build();
 
-    public TntEntity getTntEntity() {
-        return tntEntity;
-    }
-
-    private final TntEntity tntEntity;
     public HandBombEntity(EntityType<? extends HandBombEntity> type, World world) {
         super(type, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
     }
     public HandBombEntity(World world, double x, double y, double z) {
         super(HAND_BOMB_ENTITY_TYPE, x, y, z, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
     }
     public HandBombEntity(World world, LivingEntity livingEntity) {
         super(HAND_BOMB_ENTITY_TYPE, livingEntity, world);
-        tntEntity = new TntEntity(EntityType.TNT, world);
-        tntEntity.setFuse(Integer.MAX_VALUE);
-        world.spawnEntity(tntEntity);
-        tntEntity.startRiding(this);
     }
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
-            tntEntity.kill();
             explode();
             kill();
         }
@@ -61,7 +43,6 @@ public class HandBombEntity extends ThrownItemEntity {
         super.onCollision(hitResult);
         if (!world.isClient) {
             world.sendEntityStatus(this, (byte)3);
-            tntEntity.kill();
             explode();
             kill();
         }
