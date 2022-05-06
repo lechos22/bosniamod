@@ -71,10 +71,6 @@ public class BosniaMod implements ModInitializer {
 		})
 		.build();
 
-	static {
-		LOGGER.info("BosniaMod loaded");
-	}
-
 	@Override
 	public void onInitialize() {
 		HandBombEntity.init();
