@@ -53,7 +53,7 @@ public class BigBombEntity extends ThrownItemEntity {
 
     private void explode() {
         if (!world.isClient) {
-            world.createExplosion(this, getX(), getY(), getZ(), 32.0F, Explosion.DestructionType.BREAK);
+            world.createExplosion(this, getX(), getY(), getZ(), 32.0F, Explosion.DestructionType.DESTROY);
         }
     }
 
