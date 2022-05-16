@@ -16,6 +16,12 @@ public class EntityInitializer {
         EntityRendererRegistry.register(HandBombEntity.HAND_BOMB_ENTITY_TYPE, FlyingItemEntityRenderer::new);
         Registry.register(
             Registry.ENTITY_TYPE,
+            new Identifier(BosniaMod.MOD_ID,"fire_bomb"),
+            FireBombEntity.FIRE_BOMB_ENTITY_TYPE
+        );
+        EntityRendererRegistry.register(FireBombEntity.FIRE_BOMB_ENTITY_TYPE, FlyingItemEntityRenderer::new);
+        Registry.register(
+            Registry.ENTITY_TYPE,
             new Identifier(BosniaMod.MOD_ID,"big_bomb"),
             BigBombEntity.BIG_BOMB_ENTITY_TYPE
         );

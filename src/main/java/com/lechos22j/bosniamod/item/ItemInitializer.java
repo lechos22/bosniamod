@@ -23,8 +23,14 @@ public class ItemInitializer {
         );
         Registry.register(
             Registry.ITEM,
+            new Identifier(BosniaMod.MOD_ID, "fire_bomb"),
+            FireBombItem.FIRE_BOMB_ITEM
+        );
+        Registry.register(
+            Registry.ITEM,
             new Identifier(BosniaMod.MOD_ID, "big_bomb"),
             BigBombItem.BIG_BOMB_ITEM
         );
+        // TODO: chemical_bomb
     }
 }
