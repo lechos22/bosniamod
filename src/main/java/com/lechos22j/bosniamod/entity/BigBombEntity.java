@@ -19,7 +19,7 @@ public class BigBombEntity extends ThrownItemEntity {
             SpawnGroup.MISC,
             (EntityType<BigBombEntity> type, World world) -> new BigBombEntity(type, world)
         )
-            .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
             .trackRangeBlocks(4)
             .trackedUpdateRate(10)
             .build();
