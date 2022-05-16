@@ -1,10 +1,15 @@
 {
   "item.bosniamod.hand_bomb": "Ręka Bomba",
   "item.bosniamod.big_bomb": "Duża Bomba",
+  "item.bosniamod.fire_bomb": "Ogień Bomba",
   "itemGroup.bosniamod.all": "Bośnia Mod",
   "item.bosniamod.gas_mask": "Maska Gazowa",
   "item.bosniamod.cluster_bomb": "Bomba Kasetowa",
   "block.bosniamod.bosnian_spawner": "Spawner Bośniaków",
   "block.bosniamod.funnier_bosnian_spawner": "Śmieszniejszy Spawner Bośniaków",
-  "entity.bosniamod.bosnian": "Bośniak"
+  "entity.bosniamod.bosnian": "Bośniak",
+  "entity.bosniamod.fire_bomb": "Ogień Bomba",
+  "entity.bosniamod.hand_bomb": "Ręka Bomba",
+  "entity.bosniamod.big_bomb": "Duża Bomba",
+  "entity.bosniamod.cluster_bomb": "Bomba Kasetowa"
 }

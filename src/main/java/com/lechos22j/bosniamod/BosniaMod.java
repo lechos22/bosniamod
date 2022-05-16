@@ -20,6 +20,7 @@ public class BosniaMod implements ModInitializer {
 		.icon(HandBombItem.HAND_BOMB_ITEM::getDefaultStack)
 		.appendItems(stacks -> {
 			stacks.add(HandBombItem.HAND_BOMB_ITEM.getDefaultStack());
+			stacks.add(FireBombItem.FIRE_BOMB_ITEM.getDefaultStack());
 			stacks.add(BigBombItem.BIG_BOMB_ITEM.getDefaultStack());
 			stacks.add(ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack());
 			stacks.add(GasMaskItem.GAS_MASK_ITEM.getDefaultStack());

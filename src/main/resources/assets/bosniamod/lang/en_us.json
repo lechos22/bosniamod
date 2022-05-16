@@ -1,10 +1,15 @@
 {
   "item.bosniamod.hand_bomb": "Hand Bomb",
+  "item.bosniamod.fire_bomb": "Fire Bomb",
   "item.bosniamod.big_bomb": "Big Bomb",
   "item.bosniamod.cluster_bomb": "Cluster Bomb",
   "item.bosniamod.gas_mask": "Gas Mask",
   "itemGroup.bosniamod.all": "Bosnia Mod",
   "block.bosniamod.bosnian_spawner": "Bosnian Spawner",
   "block.bosniamod.funnier_bosnian_spawner": "Funnier Bosnian Spawner",
-  "entity.bosniamod.bosnian": "Bosnian"
+  "entity.bosniamod.bosnian": "Bosnian",
+  "entity.bosniamod.hand_bomb": "Hand Bomb",
+  "entity.bosniamod.fire_bomb": "Fire Bomb",
+  "entity.bosniamod.big_bomb": "Big Bomb",
+  "entity.bosniamod.cluster_bomb": "Cluster Bomb"
 }
