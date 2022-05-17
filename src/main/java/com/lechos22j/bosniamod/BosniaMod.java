@@ -1,6 +1,7 @@
 package com.lechos22j.bosniamod;
 
 import com.lechos22j.bosniamod.entity.EntityInitializer;
+import com.lechos22j.bosniamod.entity.FireBombEntity;
 import com.lechos22j.bosniamod.item.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -23,6 +24,30 @@ public class BosniaMod implements ModInitializer {
 			stacks.add(FireBombItem.FIRE_BOMB_ITEM.getDefaultStack());
 			stacks.add(BigBombItem.BIG_BOMB_ITEM.getDefaultStack());
 			stacks.add(ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack());
+			{
+				ItemStack clusterBomb = ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack();
+				NbtCompound nbt = clusterBomb.getNbt();
+				if (nbt == null)
+					nbt = new NbtCompound();
+				nbt.put("display", new NbtCompound() {{
+					putString("Name", "{\"translate\":\"item.bosniamod.cluster_bomb_fire\"}");
+				}});
+				nbt.putString("bomb_type", FireBombEntity.FIRE_BOMB_ENTITY_TYPE.toString());
+				clusterBomb.setNbt(nbt);
+				stacks.add(clusterBomb);
+			}
+			{
+				ItemStack clusterBomb = ClusterBombItem.CLUSTER_BOMB_ITEM.getDefaultStack();
+				NbtCompound nbt = clusterBomb.getNbt();
+				if (nbt == null)
+					nbt = new NbtCompound();
+				nbt.put("display", new NbtCompound() {{
+					putString("Name", "{\"translate\":\"item.bosniamod.cluster_bomb_big\"}");
+				}});
+				nbt.putString("bomb_type", BigBombItem.BIG_BOMB_ITEM.toString());
+				clusterBomb.setNbt(nbt);
+				stacks.add(clusterBomb);
+			}
 			stacks.add(GasMaskItem.GAS_MASK_ITEM.getDefaultStack());
 			{
 				ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
