@@ -106,22 +106,25 @@ public class ClusterBombEntity extends ThrownItemEntity {
         if(!world.isClient && age >= 15) {
             for(double i = -2; i <= 2; i += 2) {
                 for(double j = -2; j <= 2; j += 2) {
-                    ProjectileEntity bomb;
+                    ProjectileEntity bomb = null;
                     if(stage > 0) {
                         bomb = new ClusterBombEntity(world, getX() + i, getY() - 1.0, getZ() + j);
                         ((ClusterBombEntity)bomb).stage = stage - 1;
                         ((ClusterBombEntity)bomb).bombType = bombType;
                     }
                     else {
-                        bomb = (ProjectileEntity) bombType.create(
-                            world
-                        );
-                        assert bomb != null;
-                        bomb.setPos(getX() + i, getY() - 1.0, getZ() + j);
+                        if(bombType != null) {
+                            if(bombType.create(world) instanceof ProjectileEntity tmp) {
+                                bomb = tmp;
+                                bomb.setPos(getX() + i, getY() - 1.0, getZ() + j);
+                            }
+                        }
                     }
-                    bomb.setOwner(getOwner());
-                    bomb.setVelocity(getVelocity().add(0.0, -0.2, 0.0));
-                    world.spawnEntity(bomb);
+                    if(bomb != null) {
+                        bomb.setOwner(getOwner());
+                        bomb.setVelocity(getVelocity().add(0.0, -0.2, 0.0));
+                        world.spawnEntity(bomb);
+                    }
                 }
             }
             world.sendEntityStatus(this, (byte)3);

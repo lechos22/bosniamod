@@ -32,7 +32,7 @@ public class BosniaMod implements ModInitializer {
 				nbt.put("display", new NbtCompound() {{
 					putString("Name", "{\"translate\":\"item.bosniamod.cluster_bomb_fire\"}");
 				}});
-				nbt.putString("bomb_type", FireBombEntity.FIRE_BOMB_ENTITY_TYPE.toString());
+				nbt.putString("bomb_type", "bosniamod:fire_bomb");
 				clusterBomb.setNbt(nbt);
 				stacks.add(clusterBomb);
 			}
@@ -44,7 +44,7 @@ public class BosniaMod implements ModInitializer {
 				nbt.put("display", new NbtCompound() {{
 					putString("Name", "{\"translate\":\"item.bosniamod.cluster_bomb_big\"}");
 				}});
-				nbt.putString("bomb_type", BigBombItem.BIG_BOMB_ITEM.toString());
+				nbt.putString("bomb_type", "bosniamod:big_bomb");
 				clusterBomb.setNbt(nbt);
 				stacks.add(clusterBomb);
 			}
