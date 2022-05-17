@@ -7,8 +7,12 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
@@ -24,6 +28,7 @@ public class ClusterBombEntity extends ThrownItemEntity {
             .build();
 
     private int stage;
+    private EntityType<?> bombType = HandBombEntity.HAND_BOMB_ENTITY_TYPE;
     public ClusterBombEntity(EntityType<? extends ClusterBombEntity> type, World world) {
         super(type, world);
         stage = 1;
@@ -33,12 +38,14 @@ public class ClusterBombEntity extends ThrownItemEntity {
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         stage = nbt.getInt("stage");
+        setBombType(Identifier.tryParse(nbt.getString("bomb_type")));
     }
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
         NbtCompound result = super.writeNbt(nbt);
         result.putInt("stage", stage);
+        result.putString("bomb_type", Registry.ENTITY_TYPE.getId(bombType).toString());
         return result;
     }
 
@@ -48,6 +55,22 @@ public class ClusterBombEntity extends ThrownItemEntity {
 
     public void setStage(int stage) {
         this.stage = stage;
+    }
+
+    public EntityType<?> getBombType(){
+        return bombType;
+    }
+
+    public void setBombType(EntityType<?> bombType){
+        this.bombType = bombType;
+    }
+
+    public void setBombType(Identifier bombType){
+        try {
+            this.bombType = Registry.ENTITY_TYPE.get(bombType);
+        } catch (ClassCastException exception){
+            exception.printStackTrace();
+        }
     }
 
     public ClusterBombEntity(World world, double x, double y, double z) {
@@ -86,10 +109,17 @@ public class ClusterBombEntity extends ThrownItemEntity {
                     ProjectileEntity bomb;
                     if(stage > 0) {
                         bomb = new ClusterBombEntity(world, getX() + i, getY() - 1.0, getZ() + j);
-                        ((ClusterBombEntity)bomb).setStage(stage - 1);
+                        ((ClusterBombEntity)bomb).stage = stage - 1;
+                        ((ClusterBombEntity)bomb).bombType = bombType;
                     }
-                    else
-                        bomb = new HandBombEntity(world, getX() + i, getY() - 1.0, getZ() + j);
+                    else {
+                        bomb = (ProjectileEntity) bombType.create(
+                            world
+                        );
+                        assert bomb != null;
+                        bomb.setPos(getX() + i, getY() - 1.0, getZ() + j);
+                    }
+                    bomb.setOwner(getOwner());
                     bomb.setVelocity(getVelocity().add(0.0, -0.2, 0.0));
                     world.spawnEntity(bomb);
                 }
