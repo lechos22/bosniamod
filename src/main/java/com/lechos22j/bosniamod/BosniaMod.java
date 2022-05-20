@@ -58,7 +58,6 @@ public class BosniaMod implements ModInitializer {
 				nbt.put("display", new NbtCompound() {{
 					putString("Name", "{\"translate\":\"item.bosniamod.gas\", \"bold\":true}");
 				}});
-					// },
 				nbt.put("CustomPotionEffects", new NbtList(){{
 					add(new NbtCompound(){{
 						putByte("Id", (byte) 2);
