@@ -62,7 +62,7 @@ public class BosniaMod implements ModInitializer {
 				nbt.put("CustomPotionEffects", new NbtList(){{
 					add(new NbtCompound(){{
 						putByte("Id", (byte) 2);
-						putByte("Amplifier", (byte) 1);
+						putByte("Amplifier", (byte) 4);
 						putLong("Duration", 4000);
 					}});
 					add(new NbtCompound(){{
@@ -97,11 +97,6 @@ public class BosniaMod implements ModInitializer {
 					}});
 					add(new NbtCompound(){{
 						putByte("Id", (byte) 27);
-						putByte("Amplifier", (byte) 1);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 31);
 						putByte("Amplifier", (byte) 1);
 						putLong("Duration", 4000);
 					}});
