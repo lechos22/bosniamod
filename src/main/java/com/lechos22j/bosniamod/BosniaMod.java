@@ -1,5 +1,7 @@
 package com.lechos22j.bosniamod;
 
+import com.lechos22j.bosniamod.block.BlockInitializer;
+import com.lechos22j.bosniamod.block.CorruptedBlock;
 import com.lechos22j.bosniamod.entity.EntityInitializer;
 import com.lechos22j.bosniamod.entity.FireBombEntity;
 import com.lechos22j.bosniamod.item.*;
@@ -146,12 +148,14 @@ public class BosniaMod implements ModInitializer {
 				funnierVillagerSpawner.setNbt(funnierNbt);
 				stacks.add(funnierVillagerSpawner);
 			}
+			stacks.add(CorruptedBlock.CORRUPTED_BLOCK_ITEM.getDefaultStack());
 		})
 		.build();
 
 	@Override
 	public void onInitialize() {
 		ItemInitializer.init();
+		BlockInitializer.init();
 		EntityInitializer.init();
 		LOGGER.info("BosniaMod initialized");
 	}
