@@ -2,10 +2,14 @@ package com.lechos22j.bosniamod.block;
 
 import com.lechos22j.bosniamod.BosniaMod;
 import com.lechos22j.bosniamod.blockentity.CorruptedBlockEntity;
+import com.lechos22j.bosniamod.blockentity.CorruptingBlockEntity;
 import com.lechos22j.bosniamod.statuseffect.CorruptionStatusEffect;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -14,22 +18,19 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CorruptedBlock extends BlockWithEntity {
-    public static final CorruptedBlock CORRUPTED_BLOCK = new CorruptedBlock(
+public class CorruptingBlock extends BlockWithEntity {
+    public static final CorruptingBlock CORRUPTING_BLOCK = new CorruptingBlock(
         FabricBlockSettings.of(Material.WOOL)
-            .strength(1.5f, 6.0f)
+            .strength(3.0f, 6.0f)
             .luminance(6)
             .nonOpaque()
             .velocityMultiplier(0.4f)
     );
-    public static final BlockItem CORRUPTED_BLOCK_ITEM = new BlockItem(CORRUPTED_BLOCK, new FabricItemSettings().group(BosniaMod.BOSNIA_ITEM_GROUP));
-    public CorruptedBlock(Settings settings) {
+    public static final BlockItem CORRUPTING_BLOCK_ITEM = new BlockItem(CORRUPTING_BLOCK, new FabricItemSettings().group(BosniaMod.BOSNIA_ITEM_GROUP));
+    public CorruptingBlock(Settings settings) {
         super(settings);
     }
     @Override
@@ -39,12 +40,12 @@ public class CorruptedBlock extends BlockWithEntity {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type){
-        return checkType(type, CorruptedBlockEntity.CORRUPTED_BLOCK_ENTITY_TYPE, CorruptedBlockEntity::tick);
+        return checkType(type, CorruptingBlockEntity.CORRUPTING_BLOCK_ENTITY_TYPE, CorruptingBlockEntity::tick);
     }
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CorruptedBlockEntity(pos, state);
+        return new CorruptingBlockEntity(pos, state);
     }
 
     @Override

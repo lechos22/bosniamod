@@ -31,6 +31,11 @@ public class ItemInitializer {
             new Identifier(BosniaMod.MOD_ID, "big_bomb"),
             BigBombItem.BIG_BOMB_ITEM
         );
+        Registry.register(
+            Registry.ITEM,
+            new Identifier(BosniaMod.MOD_ID, "corrupted_item"),
+            CorruptedItem.CORRUPTED_ITEM
+        );
         // TODO: chemical_bomb
     }
 }

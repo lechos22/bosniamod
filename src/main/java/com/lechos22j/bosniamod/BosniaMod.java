@@ -2,9 +2,12 @@ package com.lechos22j.bosniamod;
 
 import com.lechos22j.bosniamod.block.BlockInitializer;
 import com.lechos22j.bosniamod.block.CorruptedBlock;
+import com.lechos22j.bosniamod.block.CorruptingBlock;
+import com.lechos22j.bosniamod.blockentity.BlockEntityInitializer;
 import com.lechos22j.bosniamod.entity.EntityInitializer;
 import com.lechos22j.bosniamod.entity.FireBombEntity;
 import com.lechos22j.bosniamod.item.*;
+import com.lechos22j.bosniamod.statuseffect.StatusEffectInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -149,6 +152,8 @@ public class BosniaMod implements ModInitializer {
 				stacks.add(funnierVillagerSpawner);
 			}
 			stacks.add(CorruptedBlock.CORRUPTED_BLOCK_ITEM.getDefaultStack());
+			stacks.add(CorruptingBlock.CORRUPTING_BLOCK_ITEM.getDefaultStack());
+			stacks.add(CorruptedItem.CORRUPTED_ITEM.getDefaultStack());
 		})
 		.build();
 
@@ -157,6 +162,8 @@ public class BosniaMod implements ModInitializer {
 		ItemInitializer.init();
 		BlockInitializer.init();
 		EntityInitializer.init();
+		BlockEntityInitializer.init();
+		StatusEffectInitializer.init();
 		LOGGER.info("BosniaMod initialized");
 	}
 }
