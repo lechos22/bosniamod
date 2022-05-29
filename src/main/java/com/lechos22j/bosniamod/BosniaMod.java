@@ -56,59 +56,46 @@ public class BosniaMod implements ModInitializer {
 			}
 			stacks.add(GasMaskItem.GAS_MASK_ITEM.getDefaultStack());
 			{
-				ItemStack splashPotion = Items.SPLASH_POTION.getDefaultStack();
-				NbtCompound nbt = splashPotion.getNbt();
-				if (nbt == null)
-					nbt = new NbtCompound();
-				nbt.put("display", new NbtCompound() {{
-					putString("Name", "{\"translate\":\"item.bosniamod.gas\", \"bold\":true}");
-				}});
-				nbt.put("CustomPotionEffects", new NbtList(){{
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 2);
-						putByte("Amplifier", (byte) 4);
-						putLong("Duration", 4000);
+				ItemStack[] potions = {
+					Items.POTION.getDefaultStack(),
+					Items.SPLASH_POTION.getDefaultStack(),
+					Items.LINGERING_POTION.getDefaultStack()
+				};
+				for(ItemStack potion: potions){
+					NbtCompound nbt = potion.getNbt();
+					if (nbt == null)
+						nbt = new NbtCompound();
+					nbt.put("display", new NbtCompound() {{
+						if (Items.POTION.equals(potion.getItem())) {
+							putString("Name", "{\"translate\":\"item.bosniamod.chlorine\", \"bold\":true}");
+						}else if (Items.SPLASH_POTION.equals(potion.getItem())) {
+							putString("Name", "{\"translate\":\"item.bosniamod.splash_chlorine\", \"bold\":true}");
+						}else if (Items.LINGERING_POTION.equals(potion.getItem())) {
+							putString("Name", "{\"translate\":\"item.bosniamod.lingering_chlorine\", \"bold\":true}");
+						}
 					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 9);
-						putByte("Amplifier", (byte) 1);
-						putLong("Duration", 4000);
+					nbt.put("CustomPotionEffects", new NbtList(){{
+						add(new NbtCompound(){{
+							putByte("Id", (byte) 15);
+							putByte("Amplifier", (byte) 1);
+							putLong("Duration", 4000);
+						}});
+						add(new NbtCompound(){{
+							putByte("Id", (byte) 19);
+							putByte("Amplifier", (byte) 2);
+							putLong("Duration", 4000);
+						}});
+						add(new NbtCompound(){{
+							putByte("Id", (byte) 20);
+							putByte("Amplifier", (byte) 2);
+							putLong("Duration", 4000);
+						}});
 					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 15);
-						putByte("Amplifier", (byte) 1);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 17);
-						putByte("Amplifier", (byte) 1);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 18);
-						putByte("Amplifier", (byte) 2);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 19);
-						putByte("Amplifier", (byte) 2);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 20);
-						putByte("Amplifier", (byte) 2);
-						putLong("Duration", 4000);
-					}});
-					add(new NbtCompound(){{
-						putByte("Id", (byte) 27);
-						putByte("Amplifier", (byte) 1);
-						putLong("Duration", 4000);
-					}});
-				}});
-				nbt.putString("Potion", "minecraft:empty");
-				nbt.putLong("CustomPotionColor", 8359701);
-				splashPotion.setNbt(nbt);
-				stacks.add(splashPotion);
+					nbt.putString("Potion", "minecraft:empty");
+					nbt.putLong("CustomPotionColor", 8359701);
+					potion.setNbt(nbt);
+					stacks.add(potion);
+				}
 			}
 			{
 				ItemStack villagerSpawner = Items.SPAWNER.getDefaultStack();
